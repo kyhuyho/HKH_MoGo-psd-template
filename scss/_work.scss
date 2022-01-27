@@ -1,0 +1,70 @@
+.work {
+  padding: 11rem 0 10rem;
+  &-list {
+    margin-top: 10rem;
+    @include flexBox(stretch, flex-start, row, flex, wrap);
+    height: 78rem;
+  }
+  &-column {
+    width: 25%;
+  }
+  &-item {
+    height: 50%;
+  }
+  &-item.item--full {
+    height: 100%;
+  }
+  &-image {
+    @include size(100%);
+    object-fit: cover;
+  }
+  &-icon {
+    margin-bottom: 2rem;
+  }
+  &-title {
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+  &-desc {
+    display: inline-block;
+    color: white;
+    @include textClamp(3);
+  }
+  @include maxWidth(1600px) {
+    &-list {
+      height: 60rem;
+    }
+  }
+  @include maxWidth(1023px) {
+    padding: 7rem 0 8rem;
+    &-list {
+      margin-top: 7rem;
+      overflow: hidden;
+      height: auto;
+    }
+    &-column {
+      width: 50%;
+    }
+    &-item {
+      height: 32rem;
+    }
+    &-item.item--full {
+      height: 64rem;
+    }
+  }
+  @include maxWidth(767px) {
+    &-list {
+      display: block;
+    }
+    &-column {
+      width: 100%;
+    }
+    &-item,
+    &-item.item--full {
+      height: auto;
+    }
+  }
+}
+@include hoverEffect(".work-item", ".work-content", "false");

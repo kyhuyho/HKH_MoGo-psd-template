@@ -1,0 +1,84 @@
+.quote {
+  padding: 7rem 0;
+  @include bg($gray-color);
+  &-content {
+    padding-left: 11rem;
+    padding-right: 7.5rem;
+    @include flexBox(center);
+  }
+  &-image {
+    @include size(15rem);
+    object-fit: cover;
+    border: 3px solid $third-color;
+    flex-shrink: 0;
+    @include flexBox(center, center);
+  }
+  &-info {
+    padding-left: 6rem;
+  }
+  &-desc {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+  }
+  &-author {
+    font-family: $third-font;
+    font-size: 2.4rem;
+    position: relative;
+    padding-left: 7rem;
+    &::before {
+      content: "";
+      @include size(6rem, 4px);
+      @include bg($primary-color);
+      @include positionCenter(absolute, "top");
+      left: 0;
+    }
+  }
+  .slick-initialized .slick-slide {
+    display: flex;
+    position: relative;
+  }
+  .slick-arrow {
+    @include bg(transparent);
+    padding: 2.5rem;
+    font-size: 2.5rem;
+    color: $gray-dark-color;
+    cursor: pointer;
+    @include positionCenter(absolute, "top");
+    z-index: 10;
+  }
+  .slick-prev {
+    left: 0;
+  }
+  .slick-next {
+    right: 0;
+  }
+  @include maxWidth(1023px) {
+    &-content {
+      padding-left: 9rem;
+      padding-right: 6rem;
+    }
+    &-info {
+      padding-left: 4rem;
+    }
+    &-desc {
+      font-size: 2rem;
+    }
+    &-author {
+      font-size: 2rem;
+    }
+  }
+  @include maxWidth(767px) {
+    &-content {
+      flex-wrap: wrap;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &-image {
+      @include size(12rem);
+      margin: 0 auto 3rem;
+    }
+    &-info {
+      padding-left: 0;
+    }
+  }
+}

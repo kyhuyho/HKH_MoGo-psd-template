@@ -1,0 +1,61 @@
+.about {
+  padding: 9rem 0 11rem;
+  // flexBox
+  /* &-list {
+    margin-top: 10rem;
+    @include flexBox(stretch, space-between);
+  }
+  &-item {
+    width: calc((100% / 3) - 2rem);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s linear;
+  } */
+  // CSS Grid
+  &-list {
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0 3rem;
+  }
+  &-image {
+    @include size(100%, 25rem);
+    object-fit: cover;
+  }
+  &-icon {
+    font-size: 2.4rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  &-title {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    color: white;
+    font-weight: bold;
+    @include textClamp(2);
+  }
+  @include hoverEffect(".about-item", ".about-content");
+  @include maxWidth(1279px) {
+    &-list {
+      margin-top: 5rem;
+    }
+    &-image {
+      height: auto;
+    }
+  }
+
+  @include maxWidth(1023px) {
+    padding: 7rem 0 9rem;
+  }
+  @include maxWidth(767px) {
+    padding: 5rem 0;
+    /* &-list {
+      display: block;
+    }
+    &-item {
+      width: 100%;
+      margin-bottom: 2.5rem;
+    } */
+    @include touchSlider(".about-list");
+  }
+}

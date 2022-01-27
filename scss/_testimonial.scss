@@ -1,0 +1,96 @@
+.testimonial {
+  padding-bottom: 13rem;
+  &-image {
+    @include size(21rem);
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  &-content {
+    padding-left: 8rem;
+    padding-right: 8rem;
+    @include flexBox(center);
+  }
+  &-info {
+    padding-left: 5rem;
+  }
+  &-desc {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+  &-author {
+    font-family: $third-font;
+    font-size: 2.4rem;
+    position: relative;
+    padding-left: 7rem;
+    height: auto;
+    height: 3rem;
+    &::before {
+      content: "";
+      @include size(6rem, 4px);
+      @include bg($primary-color);
+      @include positionCenter(absolute, "top");
+      left: 0;
+    }
+  }
+  .slick-initialized .slick-slide {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .slick-arrow {
+    padding: 2.5rem;
+    @include bg(transparent);
+    font-size: 2.5rem;
+    color: $gray-dark-color;
+    cursor: pointer;
+    position: absolute;
+    @include positionCenter(absolute, "top");
+    z-index: 10;
+  }
+  .slick-prev {
+    left: 0;
+  }
+  .slick-next {
+    right: 0;
+  }
+  @include maxWidth(1023px) {
+    padding-bottom: 7rem;
+    &-image {
+      @include size(18rem);
+    }
+    &-desc {
+      font-size: 2rem;
+    }
+    &-author {
+      font-size: 2rem;
+    }
+    &-author::before {
+      top: 35%;
+    }
+  }
+  @include maxWidth(767px) {
+    padding-bottom: 5rem;
+    &-content {
+      flex-wrap: wrap;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &-image {
+      @include size(16rem);
+      margin: 0 auto 3rem;
+    }
+    &-info {
+      padding-left: 1.5rem;
+    }
+    &-desc {
+      font-size: 2rem;
+    }
+    &-author {
+      font-size: 2rem;
+    }
+    &-author::before {
+      top: 35%;
+    }
+  }
+}

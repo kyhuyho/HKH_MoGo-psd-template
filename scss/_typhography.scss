@@ -1,0 +1,13 @@
+.text {
+  font-family: $secondary-font;
+  font-size: 1.5rem;
+  color: $text-color;
+  font-style: italic;
+  line-height: 1.4;
+}
+.text--light {
+  font-weight: 300;
+}
+.text--normal {
+  font-style: normal;
+}

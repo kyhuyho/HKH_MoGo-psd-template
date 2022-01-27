@@ -1,0 +1,63 @@
+.team {
+  padding: 10rem 0 11rem;
+  &-list {
+    margin-top: 9rem;
+    @include flexBox(stretch, space-between);
+    --image-height: 47rem;
+  }
+  &-item {
+    width: calc((100% / 3) - 2rem);
+  }
+  &-image {
+    @include size(100%, var(--image-height));
+    object-fit: cover;
+  }
+  &-social {
+    @include flexBox();
+  }
+  &-social-link {
+    display: inline-block;
+    padding: 2rem;
+    @include bg($secondary-color);
+    color: $primary-color;
+    font-size: 2.5rem;
+    transition: all 0.3s linear;
+  }
+  &-social-link:hover {
+    color: white;
+    @include bg($primary-color);
+  }
+  &-info {
+    padding-top: 3rem;
+    text-align: center;
+    height: calc(100% - var(--image-height));
+    @include flexBox(stretch, space-between, column);
+  }
+  &-name {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  @include hoverEffect(".team-main", ".team-content");
+  @include maxWidth(1023px) {
+    @include touchSlider(".team-list", 55%);
+  }
+  @include maxWidth(767px) {
+    padding: 7rem 0 5rem;
+    &-list {
+      margin-top: 4rem;
+      --image-height: 40rem;
+    }
+    @include touchSlider(".team-list", 95%);
+  }
+}
+.brand {
+  padding: 7rem 0;
+  @include bg($gray-color);
+  &-image {
+    margin-left: 1rem;
+  }
+  @include maxWidth(767px) {
+    padding: 3rem 0;
+  }
+}

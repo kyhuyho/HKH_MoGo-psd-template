@@ -1,0 +1,158 @@
+.footer {
+  &-top {
+    padding: 7.5rem 0 6.5rem;
+    @include flexBox(stretch, space-between);
+  }
+  &-column:first-child {
+    width: calc(40% - 2.5rem);
+  }
+  &-column:nth-child(2) {
+    width: calc(35% - 2.5rem);
+  }
+  &-column:last-child {
+    width: calc(25% - 2.5rem);
+  }
+  &-logo {
+    font-size: 4.6rem;
+    color: $gray-dark-color;
+    font-weight: bold;
+  }
+  &-desc {
+    margin-top: 3rem;
+  }
+  &-follower {
+    display: block;
+    margin-top: 5rem;
+    color: $title-color;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid $border-color;
+    strong {
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+  }
+  &-social {
+    @include flexBox(center);
+  }
+  &-social-icon {
+    display: inline-block;
+    margin-left: 2rem;
+    color: $third-color;
+    font-size: 1.5rem;
+  }
+  &-form {
+    margin-top: 3.5rem;
+    @include flexBox();
+    width: 100%;
+    max-width: 38rem;
+  }
+  &-input {
+    border: 2px solid $border-color;
+    padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    &::-webkit-input-placeholder {
+      font-style: italic;
+      color: $text-color;
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+  }
+  &-button {
+    padding: 1rem 3rem;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    @include bg($third-color);
+    font-size: 1.4rem;
+  }
+  &-heading {
+    color: $title-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 4rem;
+  }
+  &-blog-item {
+    @include flexBox(center);
+    margin-bottom: 3rem;
+  }
+  &-blog-image {
+    @include size(12rem, 8rem);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  &-blog-content {
+    padding-left: 2rem;
+  }
+  &-blog-desc {
+    text-transform: uppercase;
+    color: $title-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  &-blog-date {
+    font-size: 1.3rem;
+  }
+  &-images {
+    @include flexBox(stretch, space-between, row, flex, wrap);
+    margin-left: -2px;
+  }
+  &-image {
+    width: calc((100% / 3) - 2px);
+    margin-left: 2px;
+    margin-bottom: 2px;
+    padding-bottom: calc(100% / 3);
+    height: 0;
+    position: relative;
+    img {
+      @include size(100%);
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  &-more {
+    display: inline-block;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    color: $title-color;
+  }
+  &-bottom {
+    padding: 2.5rem 0;
+    border-top: 2px solid $border-color;
+    text-align: center;
+  }
+  &-mogo {
+    font-weight: bold;
+    span {
+      color: $primary-color;
+    }
+  }
+  @include maxWidth(1023px) {
+    &-top {
+      padding: 5rem 0 0;
+      display: block;
+    }
+    &-desc {
+      margin-top: 2rem;
+    }
+    &-follower {
+      margin-top: 3rem;
+    }
+    &-heading {
+      margin-bottom: 3rem;
+    }
+    &-column:not(:nth-child(888)) {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+  }
+  @include maxWidth(413px) {
+    &-follow {
+      font-size: 1.3rem;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.number {
+  @include bg($third-color);
+  &-list {
+    @include flexBox();
+  }
+  &-item {
+    width: 20%;
+    padding: 9rem 3.5rem;
+    @include bg($third-color);
+    @include flexBox(stretch, space-between, column);
+    border-right: 1px solid white;
+    text-align: center;
+  }
+  &-item:first-child {
+    border-left: 1px solid white;
+  }
+  &-item-count {
+    color: white;
+    font-size: 7.2rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    display: inline-block;
+  }
+  &-item-text {
+    display: inline-block;
+    text-transform: uppercase;
+    color: white;
+    line-height: 1.4;
+    @include textClamp(2);
+  }
+  @include maxWidth(1279px) {
+    &-item {
+      padding: 5rem 2.5rem;
+    }
+  }
+  @include maxWidth(1023px) {
+    &-item {
+      padding: 4rem 2rem;
+    }
+    &-item-count {
+      font-size: 6rem;
+    }
+  }
+  @include maxWidth(767px) {
+    &-list {
+      display: block;
+    }
+    &-item {
+      width: 100%;
+    }
+    &-item:not(:last-child) {
+      border-bottom: 1px solid white;
+    }
+    &-item:not(:nth-child(888)) {
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+}

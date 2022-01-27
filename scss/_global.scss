@@ -1,0 +1,39 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: $primary-font;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: $title-color;
+  background-color: white;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+.wrapper {
+  max-width: $wrapper;
+  margin: 0 auto;
+}
+.container {
+  max-width: $container + 30px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+input,
+button {
+  outline: none;
+  font-family: $primary-font;
+  line-height: 1;
+  border: 0;
+}
+button {
+  cursor: pointer;
+}

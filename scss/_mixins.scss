@@ -1,0 +1,144 @@
+// mixin for size
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+// mixin for background
+@mixin bg($bg: red) {
+  background-color: $bg;
+}
+// mixin for flexBox
+@mixin flexBox(
+  $align-item: stretch,
+  $justify: flex-start,
+  $direction: row,
+  $flex: flex,
+  $wrap: nowrap
+) {
+  align-items: $align-item;
+  justify-content: $justify;
+  flex-direction: $direction;
+  display: $flex;
+  flex-wrap: $wrap;
+}
+// mixin for position
+@mixin positionCenter($position: absolute, $direction: "left") {
+  position: $position;
+  @if $direction == "left" {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $direction == "top" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @if $direction == "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+// mixin for absoluteFull
+@mixin absoluteFull() {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+// mixin for maxWidth
+@mixin maxWidth($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+// mixin for minWidth
+@mixin minWidth($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+// mixin for textClamp
+@mixin textClamp($rows: 1, $size: 100%) {
+  display: -webkit-box;
+  -webkit-line-clamp: $rows;
+  -webkit-box-orient: vertical;
+  width: $size;
+  max-width: $size;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+}
+// mixin hideScroll
+@mixin hideScroll() {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+// mixin for hover
+@mixin hoverEffect($itemClass, $contentClass, $transform: "true") {
+  #{$itemClass} {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s linear;
+    @if $transform == "true" {
+      &::after {
+        content: "";
+        @include absoluteFull();
+        @include bg($third-color);
+        z-index: -1;
+        transition: all 0.3s linear;
+      }
+    }
+    #{$contentClass} {
+      @include absoluteFull();
+      background: linear-gradient(
+        to bottom,
+        rgba($primary-color, 0.8),
+        rgba($secondary-color, 0.8)
+      );
+      z-index: 10;
+      @include flexBox(center, center, column);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s linear;
+      padding: 2rem;
+      text-align: center;
+    }
+  }
+  #{$itemClass} {
+    &:hover {
+      #{$contentClass} {
+        opacity: 1;
+        visibility: visible;
+      }
+      @if $transform == "true" {
+        transform: translate(-1rem, -1rem);
+        &::after {
+          transform: translate(1rem, 1rem);
+        }
+      }
+    }
+  }
+}
+// mixin for touchSlider
+@mixin touchSlider($listClass, $column: 80%, $padding: 1rem) {
+  #{$listClass} {
+    display: grid;
+    grid-auto-columns: $column;
+    grid-auto-flow: column;
+    grid-template-columns: unset;
+    grid-gap: 0 3rem;
+    overflow-x: auto;
+    @include hideScroll();
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    padding: $padding;
+    & > * {
+      scroll-snap-align: center;
+      width: auto;
+    }
+  }
+}
